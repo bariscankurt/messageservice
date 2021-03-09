@@ -12,5 +12,8 @@ namespace ArmutServices.Data
         Task<IActionResult> Register(RegisterModel model);
         Task<IActionResult> Login(LoginModel model);
         Task<IActionResult> SendMessage(MessageSendingModel model);
+        Task<IActionResult> UnblockUser(string usernameForUnblock);
+        Task<IActionResult> BlockUser(string usernameForBlock);
+        Task<IActionResult> PastMessages(string username);
     }
 }

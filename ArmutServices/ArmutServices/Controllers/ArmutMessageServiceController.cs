@@ -109,10 +109,16 @@ namespace ArmutServices.Controllers
         [Authorize]
         [HttpPost]
         [Route("blockuser/{usernameForBlock}")] // api/armutmessage/blockuser/{username}
-        public IActionResult BlockUser(string usernameForBlock)
+        public async Task<IActionResult> BlockUser(string usernameForBlock)
         {
             string userId = User.FindFirst(ClaimTypes.Name)?.Value;
-            if(_blockingLogic.BlockUser(userId, usernameForBlock) && userId != usernameForBlock)
+            var userExist = await _userManager.FindByNameAsync(usernameForBlock);
+            if (userExist == null)
+            {
+                Log.Information($"Failed blockuser action for user {userId} because user: {usernameForBlock} doesn't exist");
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Failed", Message = "The user which you want to block doesn't exist!" });
+            }
+            if (_blockingLogic.BlockUser(userId, usernameForBlock) && userId != usernameForBlock)
             {
                 Log.Information($"Successfull blockuser action, user: {userId} blocked user: {usernameForBlock}");
                 return Ok( new Response { Status="Success",Message="User blocked successfully!"});
@@ -125,9 +131,15 @@ namespace ArmutServices.Controllers
         [Authorize]
         [HttpPost]
         [Route("unblockuser/{usernameForUnblock}")] // api/armutmessage/unblockuser/{username}
-        public IActionResult UnblockUser(string usernameForUnblock)
+        public async Task<IActionResult> UnblockUser(string usernameForUnblock)
         {
             string userId = User.FindFirst(ClaimTypes.Name)?.Value;
+            var userExist = await _userManager.FindByNameAsync(usernameForUnblock);
+            if (userExist == null)
+            {
+                Log.Information($"Failed unblockuser action for user {userId} because user: {usernameForUnblock} doesn't exist");
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Failed", Message = "The user which you want to unblock doesn't exist!" });
+            }
             if (_blockingLogic.UnblockUser(userId, usernameForUnblock))
             {
                 Log.Information($"Successfull unblockuser action, user: {userId} unblocked user: {usernameForUnblock}");
@@ -147,7 +159,13 @@ namespace ArmutServices.Controllers
             //If there is a block between them, i don't send the message and just return status code 500.
             
             string userId = User.FindFirst(ClaimTypes.Name)?.Value;
-            if (_blockingLogic.IsUserBlocked(userId, model.receivedBy))
+            var userExist = await _userManager.FindByNameAsync(model.receivedBy);
+            if(userExist == null)
+            {
+                Log.Information($"Failed sendmessage action for user {userId} because user: {model.receivedBy} doesn't exist");
+                return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Failed", Message = "Message couldn't send!" });
+            }
+            if (_blockingLogic.IsUserBlocked(userId, model.receivedBy) || userId.ToLower() == model.receivedBy.ToLower())
             {
                 Log.Information("Failed sendmessage action {@userId} blocking detected",userId);
                 return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Failed", Message = "Message couldn't send!" });

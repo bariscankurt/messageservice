@@ -6,7 +6,7 @@
 - Database gereksinimleri için Mssql kullanılmıştır.
 - Veritabanının ".bak" uzantılı backup dosyası repository içerisinde **MessageServiceDatabase.bak** olarak bulunmaktadır.
 - Loglama işlemleri için Serilog kullanılmıştır.
-- Authorization için JWT Bearer Token kullanılmıştır.
+- Authorization için JWT Bearer Token kullanılmıştır. (Test amaçlı expire süresini 20 dakika yaptım.)
 - Loglar sorgu kolaylığı amacıyla veritabanına kaydedilmektedir.
 - Tüm endpointlerin çalışırlık kontrolü Postman kullanılarak yapılmıştır.
 - DTO mapping için AutoMapper kullanılmıştır.

@@ -76,7 +76,7 @@ namespace ArmutServices.Controllers
                     token = new JwtSecurityTokenHandler().WriteToken(token)
                 });
             }
-            Log.Information($"Invalid login action for username: {user.UserName}");
+            Log.Information($"Invalid login action for username: {model.UserName}");
             return Unauthorized();
         }
 
@@ -112,7 +112,7 @@ namespace ArmutServices.Controllers
         public IActionResult BlockUser(string usernameForBlock)
         {
             string userId = User.FindFirst(ClaimTypes.Name)?.Value;
-            if(_blockingLogic.BlockUser(userId, usernameForBlock))
+            if(_blockingLogic.BlockUser(userId, usernameForBlock) && userId != usernameForBlock)
             {
                 Log.Information($"Successfull blockuser action, user: {userId} blocked user: {usernameForBlock}");
                 return Ok( new Response { Status="Success",Message="User blocked successfully!"});
@@ -162,7 +162,7 @@ namespace ArmutServices.Controllers
                 text = model.text,
                 CreatedDate = DateTime.Now
                 //I'm calculating datetime on here because i don't want to add more process load to database server.
-                //It's already enough busy with saving messages, users and logs :) 
+                //It's already enough busy with saving messages, users and logs and my pc is so slow :)
             };
 
             var result = _repository.CreateMessage(msg);
@@ -193,7 +193,7 @@ namespace ArmutServices.Controllers
                 Log.Information($"Successfull pastmessages action between user: {userAName} and user: {userB} ");
                 return Ok( _mapper.Map<IEnumerable<MessageReadDTO>>(pastMessages));
             }
-            Log.Information($"Failed pastmessages action between user: {userAName} and user: {userB}");
+            Log.Information($"Failed pastmessages action between user: {userAName} and user: {username}");
             return StatusCode(StatusCodes.Status500InternalServerError, new Response { Status = "Failed", Message = "Couldn't sent the message" });
         }
     }

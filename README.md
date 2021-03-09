@@ -9,6 +9,7 @@
 - Authorization için JWT Bearer Token kullanılmıştır.
 - Loglar sorgu kolaylığı amacıyla veritabanına kaydedilmektedir.
 - Tüm endpointlerin çalışırlık kontrolü Postman kullanılarak yapılmıştır.
+- DTO mapping için AutoMapper kullanılmıştır.
 
 ## Kullanım Kılavuzu:
 

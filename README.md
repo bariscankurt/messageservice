@@ -3,7 +3,7 @@
 ## Case Study İle İlgili Teknik Bilgiler:
 
 - Bu proje yapılırken C# ve .NET 5.0 Framework'ü kullanılmıştır.
-- Database gereksinimleri için Mssql kullanılmıştır.
+- Database gereksinimleri için Entity Framework ve Mssql kullanılmıştır .
 - Veritabanının ".bak" uzantılı backup dosyası repository içerisinde **MessageServiceDatabase.bak** olarak bulunmaktadır.
 - Loglama işlemleri için Serilog kullanılmıştır.
 - Authorization için JWT Bearer Token kullanılmıştır. (Test amaçlı expire süresini 20 dakika yaptım.)

@@ -1,5 +1,15 @@
 # Message Service
 
+## Case Study İle İlgili Teknik Bilgiler:
+
+- Bu proje yapılırken C# ve .NET 5.0 Framework'ü kullanılmıştır.
+- Database gereksinimleri için Mssql kullanılmıştır.
+- Veritabanının ".bak" uzantılı backup dosyası repository içerisinde **MessageServiceDatabase.bak** olarak bulunmaktadır.
+- Loglama işlemleri için Serilog kullanılmıştır.
+- Authorization için JWT Bearer Token kullanılmıştır.
+- Loglar sorgu kolaylığı amacıyla veritabanına kaydedilmektedir.
+- Tüm endpointlerin çalışırlık kontrolü Postman kullanılarak yapılmıştır.
+
 ## Kullanım Kılavuzu:
 
 Servis içerisinde tüketicinin kullanabileceği 6 action bulunmaktadır. 

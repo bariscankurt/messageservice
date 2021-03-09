@@ -10,6 +10,7 @@
 - Loglar sorgu kolaylığı amacıyla veritabanına kaydedilmektedir.
 - Tüm endpointlerin çalışırlık kontrolü Postman kullanılarak yapılmıştır.
 - DTO mapping için AutoMapper kullanılmıştır.
+- Kod içerisinde method açıklamaları yorum satırları ile yapılmıştır.
 
 ## Kullanım Kılavuzu:
 

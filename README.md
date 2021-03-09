@@ -1,6 +1,6 @@
 # Message Service
 
-## Case Study İle İlgili Teknik Bilgiler:
+## Proje İle İlgili Teknik Bilgiler:
 
 - Bu proje yapılırken C# ve .NET 5.0 Framework'ü kullanılmıştır.
 - Database gereksinimleri için Entity Framework ve Mssql kullanılmıştır .

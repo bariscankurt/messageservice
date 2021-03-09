@@ -22,7 +22,7 @@ api/armutmessage/register
 ```
 Request tipi **POST** olmalıdır.
 
-Register action için yapılan çağrı aşağıda belirtilen **RegisterModel**'i requestbody'sinde içermelidir:
+Register action için yapılan çağrı aşağıda belirtilen **RegisterModel**'i request body'sinde içermelidir:
 ```
 {
   "UserName":"Exampleuser",
@@ -42,7 +42,7 @@ api/armutmessage/login
 ```
 Request tipi **POST** olmalıdır.
 
-Login action için yapılan çağrı aşağıda örneği verilen **LoginModel**'i requestbody'sinde içermelidir:
+Login action için yapılan çağrı aşağıda örneği verilen **LoginModel**'i request body'sinde içermelidir:
 ```
 {
   "UserName":"Exampleuser",
@@ -65,7 +65,7 @@ api/armutmessage/sendmessage
 ```
 Request tipi **POST** olmalıdır.
 
-Sendmessage işlemi için yapılan çağrı aşağıda örneği verilen **MessageSendingModel**'i requestbody'sinde içermelidir:
+Sendmessage işlemi için yapılan çağrı aşağıda örneği verilen **MessageSendingModel**'i request body'sinde içermelidir:
 ```
 {
   "receivedBy":"Exampleuser",

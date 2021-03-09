@@ -20,7 +20,7 @@ Register işlemi için kullanılması gereken endpoint:
 ```
 api/armutmessage/register
 ```
-Request tipi POST olmalıdır.
+Request tipi **POST** olmalıdır.
 
 Register action için yapılan çağrı aşağıda belirtilen **RegisterModel**'i requestbody'sinde içermelidir:
 ```
@@ -40,7 +40,7 @@ Login işlemi için kullanılması gereken endpoint:
 ```
 api/armutmessage/login
 ```
-Request tipi POST olmalıdır.
+Request tipi **POST** olmalıdır.
 
 Login action için yapılan çağrı aşağıda örneği verilen **LoginModel**'i requestbody'sinde içermelidir:
 ```
@@ -63,7 +63,7 @@ Sendmessage işlemi mesaj göndermek için kullanılmaktadır. Bu işlem için k
 ```
 api/armutmessage/sendmessage
 ```
-Request tipi POST olmalıdır.
+Request tipi **POST** olmalıdır.
 
 Sendmessage işlemi için yapılan çağrı aşağıda örneği verilen **MessageSendingModel**'i requestbody'sinde içermelidir:
 ```
@@ -88,7 +88,7 @@ Bu işlem için kullanılması gereken endpoint:
 ```
 api/armutmessage/blockuser/{usernameForBlock}
 ```
-Request tipi POST olmalıdır.
+Request tipi **POST** olmalıdır.
 
 Blockuser işlemi için yapılan çağrının request header'ı Login işleminden döndürülen Bearer Token'ı içermelidir.
 
@@ -102,7 +102,7 @@ Bu işlem için kullanılması gereken endpoint:
 ```
 api/armutmessage/unblockuser/{usernameForUnblock}
 ```
-Request tipi POST olmalıdır.
+Request tipi **POST** olmalıdır.
 
 Unblockuser işlemi için yapılan çağrının request header'ı Login işleminden döndürülen Bearer Token'ı içermelidir.
 
@@ -116,7 +116,7 @@ Bu işlem için kullanılması gereken endpoint:
 ```
 api/armutmessage/pastmessages/{username}
 ```
-Request tipi GET olmalıdır.
+Request tipi **GET** olmalıdır.
 
 Pastmessages işlemi için yapılan çağrının request header'ı Login işleminden döndürülen Bearer Token'ı içermelidir.
 
